@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Anton", sans-serif;
+  
+  --color-studio-bg: #0A0A0B;
+  --color-studio-text: #E0E0E0;
+  --color-studio-cyan: #00F0FF;
+  --color-studio-pink: #FF0055;
+  --color-studio-card: rgba(255, 255, 255, 0.03);
+  --color-studio-border: rgba(255, 255, 255, 0.1);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-studio-bg text-studio-text font-sans antialiased selection:bg-studio-cyan selection:text-black;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .pixel-grid {
+    background-image: radial-gradient(circle, #222 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/10;
+  }
+  
+  .neon-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  }
+
+  .neon-glow-pink {
+    text-shadow: 0 0 10px rgba(255, 0, 85, 0.3);
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .tool-chip {
+    @apply bg-white/5 border border-white/10 px-2 py-0.5 text-[10px] uppercase tracking-widest font-bold;
+  }
+}
